@@ -1,2 +1,6 @@
 git clone git@github.com:LUMR/Helpdocs.git
 从github克隆一个项目到当前仓库
+git config --global push.default matching
+把push.default设置为'matching',git将推送和推送本地所有同名分支
+git config --global push.default simple
+只推送当前分支到远程关联的同名分支，即 'git push' 推送当前分支。
