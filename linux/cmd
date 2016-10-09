@@ -1,0 +1,18 @@
+#移动启动器到桌面底部
+gsettings set com.canonical.Unity.Launcher launcher-position Bottom
+#移动启动器到左边
+gsettings set com.canonical.Unity.Launcher launcher-position Left
+#卸载程序
+sudo apt-get autoremove --purge [程序名]
+安装程序.deb
+sudo dpkg -i *.deb
+启动/停止apache2
+/etc/init.d/apache2 start/stop
+创建软/硬链接//没有-s就是硬链接
+ln -s [文件名] [链接名] 
+控制APACHE
+sudo /usr/local/apache2/bin/apachectl start
+sudo /usr/local/apache2/bin/apachectl stop
+安装PHP参数
+sudo ./configure --with-apxs2=/usr/local/apache2/bin/apxs --with-zlib-dir=/usr/src/zlib-1.2.8 --with-png-dir --with-gd --with-freetype-dir= --with-jpeg-dir= --with-mysqli --with-imap
+
