@@ -1,5 +1,5 @@
 -- 运行数据库的SQL脚本
-mysql -u lumr -p >create_database.sql
+mysql -u lumr -p <create_database.sql
 
 --查看数据库字符集
 show variables like 'collation_%';

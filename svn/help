@@ -1,0 +1,45 @@
+A：启动服务器
+svnserve -d -r /home/svn [--listen-host 192.168.1.16]
+注：
+-d：表示在后台运行
+-r：指定服务器的根目录
+这样访问服务器时就可以直接用”svn://服务器ip/repository”来访问了。
+如果服务器有多ip的话–listen-host来指定监听的ip地址.
+
+B：停止服务器
+killall svnserve
+ps aux | grep svnserve //查看服务器是否已停止
+
+配置用户密码
+编制conf/passwd文件 设定用户密码
+[users]
+# harry = harryssecret
+# sally = sallyssecret
+tone=www
+
+tone的密码为www 对 没看错 明文的。
+
+编辑svnserve.conf
+
+[general]
+#匿名用户不可读
+anon-access = none
+#权限用户可写
+auth-access = write
+#密码文件为passwd
+password-db = passwd
+#权限文件为authz
+authz-db = authz
+
+编辑authz 制定管理员组 即admin组的用户为tone admin组有rw（读写权限） 所有人有r（读权限）
+
+[groups]
+admin= tone
+
+[/]
+@admin =rw
+*=r
+
+这里组的名字 不一定叫admin 你的管理员组名 可以叫做任意的名字，另外比如admin组还有其他用户，可以这样制定 admin=tone，tone1,tone2 类似这样的写法
+
+
